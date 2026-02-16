@@ -2,86 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticker Studio ✨</title>
-    <!-- Fabric JS Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-    <!-- Google Fonts (Aesthetic Fonts) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Funny Sticker Builder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <header>
-            <h1>Sticker Studio ✨</h1>
-            <p>Make it funny. Make it yours.</p>
-        </header>
-
-        <div class="workspace">
-            <!-- Sidebar Controls -->
-            <div class="controls">
-                
-                <div class="control-group">
-                    <label class="custom-file-upload">
-                        <input type="file" id="imageUpload" accept="image/*">
-                        <i class="fa-solid fa-cloud-upload-alt"></i> Upload Image
-                    </label>
-                </div>
-
-                <div class="control-group">
-                    <button id="addTextBtn" class="btn primary"><i class="fa-solid fa-font"></i> Add Text</button>
-                    <input type="color" id="colorPicker" value="#ff6b6b" title="Text Color">
-                </div>
-
-                <div class="control-group">
-    <h3>Add Emojis</h3>
-    <div class="emoji-bar">
-        <!-- Faces -->
-        <button class="emoji-btn">😂</button>
-        <button class="emoji-btn">😎</button>
-        <button class="emoji-btn">🤡</button>
-        <button class="emoji-btn">🤪</button>
-        <button class="emoji-btn">🤓</button>
-        <button class="emoji-btn">🤔</button>
-        <button class="emoji-btn">🤮</button>
-        <button class="emoji-btn">🤯</button>
-        
-        <!-- Objects & Symbols -->
-        <button class="emoji-btn">🔥</button>
-        <button class="emoji-btn">✨</button>
-        <button class="emoji-btn">❤️</button>
-        <button class="emoji-btn">💩</button>
-        <button class="emoji-btn">🚀</button>
-        <button class="emoji-btn">💯</button>
-        <button class="emoji-btn">🎉</button>
-        <button class="emoji-btn">👻</button>
-        
-        <!-- Animals -->
-        <button class="emoji-btn">🐶</button>
-        <button class="emoji-btn">🐱</button>
-        <button class="emoji-btn">🦄</button>
-        <button class="emoji-btn">🐸</button>
-    </div>
-</div>
-
-
-                <div class="control-group action-buttons">
-                    <button id="deleteBtn" class="btn danger"><i class="fa-solid fa-trash"></i> Delete Selected</button>
-                    <button id="downloadBtn" class="btn success"><i class="fa-solid fa-download"></i> Download PNG</button>
-                </div>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Build Your Funny Sticker!</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="file" id="imageUpload" class="form-control mb-3">
+                <button id="addText" class="btn btn-primary mb-3">Add Funny Text</button>
+                <button id="download" class="btn btn-success">Download Sticker</button>
             </div>
-
-            <!-- Canvas Area -->
-            <div class="canvas-container-wrapper">
-                <canvas id="stickerCanvas" width="500" height="500"></canvas>
+            <div class="col-md-6">
+                <canvas id="stickerCanvas" width="400" height="400" class="border"></canvas>
             </div>
         </div>
     </div>
-
-    <script src="sticker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
