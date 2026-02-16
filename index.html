@@ -2,25 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Funny Sticker Builder</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Aesthetic Sticker Maker</title>
+    
+    <!-- Fabric.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Build Your Funny Sticker!</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="file" id="imageUpload" class="form-control mb-3">
-                <button id="addText" class="btn btn-primary mb-3">Add Funny Text</button>
-                <button id="download" class="btn btn-success">Download Sticker</button>
-            </div>
-            <div class="col-md-6">
-                <canvas id="stickerCanvas" width="400" height="400" class="border"></canvas>
-            </div>
-        </div>
+    
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
-    <script src="script.js"></script>
+
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="sparkle">✨</span>
+                <h1>Aesthetic Sticker Maker</h1>
+                <span class="sparkle">✨</span>
+            </div>
+            <p class="tagline">Create vibes, make memories</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Sidebar Controls -->
+            <aside class="sidebar">
+                
+                <!-- Upload Section -->
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-image"></i> Upload Image</h3>
+                    <label class="file-upload-btn">
+                        <input type="file" id="imageUpload" accept="image/*">
+                        <i class="fas fa-cloud-arrow-up"></i> Choose Image
+                    </label>
+                </div>
+
+                <!-- Text Section -->
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-font"></i> Add Text</h3>
+                    <button id="addTextBtn" class="action-btn text-btn">
+                        <i class="fas fa-plus"></i> Add Text
+                    </button>
+                    <div class="color-picker-wrapper">
+                        <label>Text Color</label>
+                        <input type="color" id="colorPicker" value="#ff6b9d">
+                    </div>
+                    <div class="font-selector">
+                        <label>Font Style</label>
+                        <select id="fontSelect">
+                            <option value="Inter">Modern (Inter)</option>
+                            <option value="Satisfy">Handwritten</option>
+                            <option value="Arial">Classic</option>
+                            <option value="Courier New">Typewriter</option>
+                            <option value="Georgia">Elegant</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Stickers & Emojis -->
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-face-smile"></i> Stickers & Emojis</h3>
+                    <div class="emoji-grid">
+                        <!-- Cute Faces -->
+                        <button class="emoji-btn">😊</button>
+                        <button class="emoji-btn">🥰</button>
+                        <button class="emoji-btn">😎</button>
+                        <button class="emoji-btn">🤩</button>
+                        <button class="emoji-btn">😂</button>
+                        <button class="emoji-btn">🥺</button>
+                        <button class="emoji-btn">😭</button>
+                        <button class="emoji-btn">🤪</button>
+                        
+                        <!-- Hearts & Love -->
+                        <button class="emoji-btn">💕</button>
+                        <button class="emoji-btn">💖</button>
+                        <button class="emoji-btn">💗</button>
+                        <button class="emoji-btn">💓</button>
+                        <button class="emoji-btn">💝</button>
+                        <button class="emoji-btn">❤️</button>
+                        
+                        <!-- Sparkles & Magic -->
+                        <button class="emoji-btn">✨</button>
+                        <button class="emoji-btn">🌟</button>
+                        <button class="emoji-btn">⭐</button>
+                        <button class="emoji-btn">🌈</button>
+                        <button class="emoji-btn">🦋</button>
+                        <button class="emoji-btn">🌸</button>
+                        
+                        <!-- Fun & Cool -->
+                        <button class="emoji-btn">🔥</button>
+                        <button class="emoji-btn">🎉</button>
+                        <button class="emoji-btn">🎈</button>
+                        <button class="emoji-btn">🍭</button>
+                        <button class="emoji-btn">🍩</button>
+                        <button class="emoji-btn">🌙</button>
+                        <button class="emoji-btn">☁️</button>
+                        <button class="emoji-btn">🌺</button>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="card actions-card">
+                    <button id="clearBtn" class="action-btn clear-btn">
+                        <i class="fas fa-rotate-right"></i> Clear Canvas
+                    </button>
+                    <button id="deleteBtn" class="action-btn delete-btn">
+                        <i class="fas fa-trash"></i> Delete Selected
+                    </button>
+                    <button id="downloadBtn" class="action-btn download-btn">
+                        <i class="fas fa-download"></i> Download PNG
+                    </button>
+                </div>
+
+            </aside>
+
+            <!-- Canvas Area -->
+            <div class="canvas-area">
+                <div class="canvas-wrapper">
+                    <canvas id="stickerCanvas" width="600" height="600"></canvas>
+                </div>
+                <p class="canvas-hint">💡 Click on any element to edit, drag to move, or press Delete to remove</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="sticker.js"></script>
 </body>
 </html>
