@@ -1,162 +1,20 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    background: linear-gradient(135deg, #ff9a9e, #fecfef, #a8edea);
+    font-family: 'Comfortaa', sans-serif;
     color: #333;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-.container {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 900px;
-    width: 95%;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
+h1 {
+    font-family: 'Fredoka One', cursive;
     color: #ff6b6b;
-    text-shadow: 2px 2px 0px #ffeaa7;
 }
-
-header p {
-    color: #888;
-    font-size: 1rem;
-}
-
-.workspace {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
-
-/* Controls Sidebar */
-.controls {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.control-group {
-    background: #fff;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.control-group h3 {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-/* Custom File Upload */
-input[type="file"] {
-    display: none;
-}
-
-.custom-file-upload {
-    display: block;
-    padding: 12px;
-    background: #6c5ce7;
-    color: white;
-    text-align: center;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.custom-file-upload:hover {
-    background: #5649c0;
-    transform: translateY(-2px);
-}
-
-/* Buttons */
 .btn {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: 600;
-    transition: 0.3s;
-    width: 100%;
-    margin-bottom: 5px;
+    border-radius: 50px;
+    transition: transform 0.2s;
 }
-
-.btn.primary { background: #ffeaa7; color: #333; }
-.btn.danger { background: #fab1a0; color: #fff; }
-.btn.success { background: #55efc4; color: #333; }
-
 .btn:hover {
-    transform: translateY(-2px);
-    filter: brightness(0.95);
+    transform: scale(1.05);
 }
-
-#colorPicker {
-    width: 100%;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    background: none;
-    margin-top: 5px;
+canvas {
+    border-radius: 50%; /* Circular sticker aesthetic */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-/* Emoji Bar */
-.emoji-bar {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3 theke 4 kora hoyeche */
-    gap: 10px;
-    max-height: 200px; /* Scrollbar add korar jonno */
-    overflow-y: auto;  /* Beshi emoji hole scroll hobe */
-    padding-right: 5px;
-}
-
-
-.emoji-btn {
-    background: #f1f2f6;
-    border: none;
-    font-size: 1.5rem;
-    padding: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.emoji-btn:hover {
-    background: #dfe4ea;
-    transform: scale(1.1);
-}
-
-/* Canvas Area */
-.canvas-container-wrapper {
-    border: 2px dashed #dcdde1;
-    border-radius: 10px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #ffffff;
-}
-
