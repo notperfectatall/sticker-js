@@ -3,28 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticker JS</title>
-    <!-- Fabric.js library load kora joruri -->
+    <title>Sticker Studio ✨</title>
+    <!-- Fabric JS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; }
-        canvas { border: 1px solid #ccc; margin-top: 20px; }
-        .controls { margin-bottom: 10px; }
-    </style>
+    <!-- Google Fonts (Aesthetic Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Sticker Creator</h1>
-    
-    <div class="controls">
-        <input type="file" id="imageUpload" accept="image/*">
-        <button id="addText">Add Text</button>
-        <button id="download">Download Sticker</button>
+
+    <div class="container">
+        <header>
+            <h1>Sticker Studio ✨</h1>
+            <p>Make it funny. Make it yours.</p>
+        </header>
+
+        <div class="workspace">
+            <!-- Sidebar Controls -->
+            <div class="controls">
+                
+                <div class="control-group">
+                    <label class="custom-file-upload">
+                        <input type="file" id="imageUpload" accept="image/*">
+                        <i class="fa-solid fa-cloud-upload-alt"></i> Upload Image
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <button id="addTextBtn" class="btn primary"><i class="fa-solid fa-font"></i> Add Text</button>
+                    <input type="color" id="colorPicker" value="#ff6b6b" title="Text Color">
+                </div>
+
+                <div class="control-group">
+                    <h3>Add Emojis</h3>
+                    <div class="emoji-bar">
+                        <button class="emoji-btn">😂</button>
+                        <button class="emoji-btn">😎</button>
+                        <button class="emoji-btn">🔥</button>
+                        <button class="emoji-btn">❤️</button>
+                        <button class="emoji-btn">💀</button>
+                        <button class="emoji-btn">🤡</button>
+                    </div>
+                </div>
+
+                <div class="control-group action-buttons">
+                    <button id="deleteBtn" class="btn danger"><i class="fa-solid fa-trash"></i> Delete Selected</button>
+                    <button id="downloadBtn" class="btn success"><i class="fa-solid fa-download"></i> Download PNG</button>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div class="canvas-container-wrapper">
+                <canvas id="stickerCanvas" width="500" height="500"></canvas>
+            </div>
+        </div>
     </div>
 
-    <!-- Ekhane canvas thakbe -->
-    <canvas id="stickerCanvas" width="500" height="500"></canvas>
-
-    <!-- Tomar script sobar sheshe load hobe -->
     <script src="sticker.js"></script>
 </body>
 </html>
