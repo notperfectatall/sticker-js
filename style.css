@@ -126,9 +126,13 @@ input[type="file"] {
 /* Emoji Bar */
 .emoji-bar {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 3 theke 4 kora hoyeche */
     gap: 10px;
+    max-height: 200px; /* Scrollbar add korar jonno */
+    overflow-y: auto;  /* Beshi emoji hole scroll hobe */
+    padding-right: 5px;
 }
+
 
 .emoji-btn {
     background: #f1f2f6;
@@ -155,3 +159,4 @@ input[type="file"] {
     align-items: center;
     background: #ffffff;
 }
+
