@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticker JS</title>
+    <!-- Fabric.js library load kora joruri -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        canvas { border: 1px solid #ccc; margin-top: 20px; }
+        .controls { margin-bottom: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Hello, Sticker JS is working!</h1>
+    <h1>Sticker Creator</h1>
     
-    <!-- Tomar script ta ekhane load koro -->
+    <div class="controls">
+        <input type="file" id="imageUpload" accept="image/*">
+        <button id="addText">Add Text</button>
+        <button id="download">Download Sticker</button>
+    </div>
+
+    <!-- Ekhane canvas thakbe -->
+    <canvas id="stickerCanvas" width="500" height="500"></canvas>
+
+    <!-- Tomar script sobar sheshe load hobe -->
     <script src="sticker.js"></script>
 </body>
 </html>
